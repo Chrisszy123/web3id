@@ -29,11 +29,11 @@ async fn verify(Json(payload): Json<VerifyRequest>) -> Json<bool> {
             .to_lowercase()
             == payload.address.to_lowercase(),
     )
+   
 }
 
 
 #[tokio::main]
-
 async fn main() {
     let app = Router::new().route("/verify", post(verify));
     let listener = TcpListener::bind("0.0.0.0:4000")

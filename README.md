@@ -15,4 +15,12 @@ with on-chain source of truth.
 ![Web3ID Architecture](./web3id_arch.png)
 
 ## Status
+
+Security notes:
+
+One nonce per wallet
+
+Short TTL (5 min)
+
+Deleted after use
 🚧 Initial scaffolding complete

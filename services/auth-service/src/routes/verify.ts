@@ -1,5 +1,6 @@
-import jwt from "jsonwebtoken";
-import { verifySignature } from "../lib/verifySignature";
+import * as jwt from "jsonwebtoken";
+import { resolveRoles } from "../lib/roleResolver.js";
+import { verifySignature } from "../lib/verifySignature.js";
 export async function verifyRoute(app: any) {
   app.post("/auth/verify", async (req: any) => {
     const { walletAddress, signature } = req.body;
@@ -18,6 +19,8 @@ export async function verifyRoute(app: any) {
 
     // Delete nonce (replay protection)
     await app.db.nonces.delete(walletAddress);
+    // Resolve roles
+    const roles = await resolveRoles(walletAddress);
 
     const token = jwt.sign(
       { walletAddress },
@@ -25,6 +28,6 @@ export async function verifyRoute(app: any) {
       { expiresIn: "15m" }
     );
 
-    return { token };
+    return { token, roles };
   });
 }
