@@ -1,6 +1,11 @@
 [package]
 name = "signature-verifier"
 version = "0.1.0"
-edition = "2024"
+edition = "2021"
 
 [dependencies]
+ethers = "2"
+axum = "0.7"
+tokio = { version = "1", features = ["full"] }
+serde = { version = "1", features = ["derive"] }
+hex = "0.4"

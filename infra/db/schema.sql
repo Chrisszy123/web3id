@@ -9,6 +9,12 @@ CREATE TABLE sessions (
   expires_at TIMESTAMP NOT NULL
 );
 
+CREATE TABLE nonces (
+  wallet_address TEXT PRIMARY KEY,
+  nonce TEXT NOT NULL,
+  expires_at TIMESTAMP NOT NULL
+);
+
 CREATE TABLE audit_logs (
   id UUID PRIMARY KEY,
   event TEXT,
