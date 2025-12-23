@@ -11,7 +11,8 @@ with on-chain source of truth.
 - Solidity
 
 ## Architecture
-(Insert diagram)
+
+![Web3ID Architecture](./web3id_arch.png)
 
 ## Status
 🚧 Initial scaffolding complete
