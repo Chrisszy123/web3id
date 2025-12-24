@@ -16,11 +16,6 @@ CREATE TABLE nonces (
 );
 
 CREATE TABLE audit_logs (
-  id UUID PRIMARY KEY,
-  event TEXT,
-  created_at TIMESTAMP DEFAULT now()
-);
-CREATE TABLE audit_logs (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   event TEXT NOT NULL,
   wallet_address TEXT,

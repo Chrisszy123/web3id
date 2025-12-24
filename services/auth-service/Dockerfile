@@ -24,9 +24,6 @@ WORKDIR /app/services/auth-service
 # Install dependencies
 RUN pnpm install --frozen-lockfile
 
-# Copy source code
-COPY . .
-
 # Expose port
 EXPOSE 3001
 
