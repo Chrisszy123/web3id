@@ -1,24 +1,34 @@
-version: "3.8"
+version: "3.9"
 
 services:
   postgres:
     image: postgres:15
     environment:
-      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: web3id
+      POSTGRES_PASSWORD: web3id
+      POSTGRES_DB: web3id
     ports:
       - "5432:5432"
 
-  api:
-    build: ../../services/api-gateway
-    ports:
-      - "3000:3000"
-
-  auth:
-    build: ../../services/auth-service
+  auth-service:
+    build: ./services/auth-service
     ports:
       - "3001:3001"
+    environment:
+      DATABASE_URL: postgres://web3id:web3id@postgres:5432/web3id
+      JWT_SECRET: supersecret
+    depends_on:
+      - postgres
+      - rust-verifier
 
-  rust:
-    build: ../../rust/signature-verifier
+  rust-verifier:
+    build: ./rust/signature-verifier
     ports:
       - "4000:4000"
+
+  admin-console:
+    build: ./apps/admin-console
+    ports:
+      - "3000:3000"
+    depends_on:
+      - auth-service
