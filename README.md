@@ -72,7 +72,7 @@ This WEB3ID platform provides:
 
   ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Frontend**: React, TypeScript
 - **Backend**: Node.js, Fastify
@@ -95,7 +95,7 @@ This WEB3ID platform provides:
 
 ---
 
-## 🧪 Use Cases
+## Use Cases
 
 - DAO admin dashboards
 - Web3 SaaS platforms
@@ -105,7 +105,7 @@ This WEB3ID platform provides:
 
 ---
 
-## 🚀 Why This Project Matters
+## Why This Project Matters
 
 This project demonstrates:
 
@@ -119,7 +119,7 @@ It goes beyond wallet login to solve **real authorization problems in Web3 syste
 
 ---
 
-## 📦 Running Locally
+## Running Locally
 
 ```bash
 docker compose up --build
