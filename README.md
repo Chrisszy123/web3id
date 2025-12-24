@@ -121,4 +121,4 @@ It goes beyond wallet login to solve **real authorization problems in Web3 syste
 ## Running Locally
 
 ```bash
-docker compose up --build
+cd infra/docker && docker compose up --build
