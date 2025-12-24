@@ -8,7 +8,7 @@ A production-grade **Web3 WEB3ID platform** that bridges **wallet-based identity
 
 ## Problem
 
-Web3 applications can authenticate users via wallets — but:
+Web3 applications can authenticate users via wallets but:
 
 - Wallet login ≠ authorization
 - Web2 systems require JWTs and RBAC
@@ -72,7 +72,7 @@ This WEB3ID platform provides:
 
   ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Frontend**: React, TypeScript
 - **Backend**: Node.js, Fastify
@@ -80,7 +80,6 @@ This WEB3ID platform provides:
 - **Blockchain**: Solidity (EVM)
 - **Database**: PostgreSQL
 - **Infrastructure**: Docker, Docker Compose
-- **Observability**: Pino, Datadog / Loki compatible
 
 ---
 
@@ -95,7 +94,7 @@ This WEB3ID platform provides:
 
 ---
 
-## 🧪 Use Cases
+## Use Cases
 
 - DAO admin dashboards
 - Web3 SaaS platforms
@@ -105,7 +104,7 @@ This WEB3ID platform provides:
 
 ---
 
-## 🚀 Why This Project Matters
+## Why This Project Matters
 
 This project demonstrates:
 
@@ -119,7 +118,7 @@ It goes beyond wallet login to solve **real authorization problems in Web3 syste
 
 ---
 
-## 📦 Running Locally
+## Running Locally
 
 ```bash
-docker compose up --build
+cd infra/docker && docker compose up --build
