@@ -6,6 +6,7 @@ import fastifyCors from "@fastify/cors"
 import { nonceRoute } from "./routes/nonce.js";
 import { verifyRoute } from "./routes/verify.js";
 import { authMiddleware } from "./middleware/auth.js";
+import rateLimit from "@fastify/rate-limit"
 
 const app = Fastify();
 await app.register(fastifyCors, {
@@ -18,6 +19,10 @@ await app.register(fastifyCors, {
 app.register(nonceRoute);
 app.register(verifyRoute);
 
+await app.register(rateLimit, {
+  global: false, // IMPORTANT
+  //redis: app.redis, // optional later
+});
 app.get(
   "/admin/metrics",
   { preHandler: authMiddleware(["ADMIN"]) },
