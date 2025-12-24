@@ -18,14 +18,14 @@ export async function nonceRoute(app: any) {
       const { walletAddress } = req.body;
 
       const nonce = `Sign this nonce to authenticate: ${uuidv4()}`;
-
+      console.log('nonce generated', nonce);
       // Store nonce (pseudo-code DB call)
       await app.db.nonces.upsert({
         wallet_address: walletAddress,
         nonce,
         expires_at: new Date(Date.now() + 5 * 60 * 1000),
       });
-
+      console.log('nonce stored', nonce);
       return { nonce };
     }
   );

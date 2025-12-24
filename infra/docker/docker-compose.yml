@@ -11,7 +11,9 @@ services:
       - "5432:5432"
 
   auth-service:
-    build: ./services/auth-service
+    build:
+      context: ../..
+      dockerfile: services/auth-service/Dockerfile
     ports:
       - "3001:3001"
     environment:
@@ -22,12 +24,16 @@ services:
       - rust-verifier
 
   rust-verifier:
-    build: ./rust/signature-verifier
+    build:
+      context: ../..
+      dockerfile: rust/signature-verifier/Dockerfile
     ports:
       - "4000:4000"
 
   admin-console:
-    build: ./apps/admin-console
+    build:
+      context: ../..
+      dockerfile: apps/admin-console/Dockerfile
     ports:
       - "3000:3000"
     depends_on:
