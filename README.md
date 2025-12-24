@@ -80,7 +80,6 @@ This WEB3ID platform provides:
 - **Blockchain**: Solidity (EVM)
 - **Database**: PostgreSQL
 - **Infrastructure**: Docker, Docker Compose
-- **Observability**: Pino, Datadog / Loki compatible
 
 ---
 
