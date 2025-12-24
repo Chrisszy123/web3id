@@ -20,3 +20,22 @@ CREATE TABLE audit_logs (
   event TEXT,
   created_at TIMESTAMP DEFAULT now()
 );
+CREATE TABLE audit_logs (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  event TEXT NOT NULL,
+  wallet_address TEXT,
+  ip TEXT,
+  user_agent TEXT,
+  metadata JSONB,
+  created_at TIMESTAMP DEFAULT now()
+);
+
+CREATE TABLE refresh_tokens (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  wallet_address TEXT NOT NULL,
+  token_hash TEXT NOT NULL,
+  revoked BOOLEAN DEFAULT false,
+  replaced_by UUID,
+  expires_at TIMESTAMP NOT NULL,
+  created_at TIMESTAMP DEFAULT now()
+);
