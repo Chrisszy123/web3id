@@ -8,7 +8,7 @@ A production-grade **Web3 WEB3ID platform** that bridges **wallet-based identity
 
 ## Problem
 
-Web3 applications can authenticate users via wallets — but:
+Web3 applications can authenticate users via wallets but:
 
 - Wallet login ≠ authorization
 - Web2 systems require JWTs and RBAC
