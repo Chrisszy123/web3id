@@ -1,6 +1,7 @@
 use axum::{routing::post, Json, Router};
-use ethers::core::types::Signature;
+use ethers::core::types::{Address, Signature};
 use ethers::core::utils::hash_message;
+use std::str::FromStr;
 use serde::{Deserialize};
 use tokio::net::TcpListener;
 
@@ -23,13 +24,11 @@ async fn verify(Json(payload): Json<VerifyRequest>) -> Json<bool> {
         Ok(addr) => addr,
         Err(_) => return Json(false),
     };
-    Json(
-        recovered_address
-            .to_string()
-            .to_lowercase()
-            == payload.address.to_lowercase(),
-    )
-   
+    let payload_address = match Address::from_str(&payload.address) {
+        Ok(addr) => addr,
+        Err(_) => return Json(false),
+    };
+    Json(recovered_address == payload_address)
 }
 
 
