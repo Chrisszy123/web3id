@@ -8,8 +8,16 @@ export type Role = "ADMIN" | "DEVELOPER" | "VIEWER";
 
 // export type Role = "ADMIN" | "DEVELOPER" | "VIEWER";
 
+// Helper function to create a bytes32 hash from a string
+function toBytes32(str: string): string {
+  const hex = Buffer.from(str).toString("hex");
+  // Pad to 64 characters (32 bytes) - bytes32 requires exactly 32 bytes
+  const padded = hex.padEnd(64, "0");
+  return "0x" + padded;
+}
+
 export const ROLE_HASH = {
-  ADMIN: "0x" + Buffer.from("ADMIN").toString("hex"),
-  DEVELOPER: "0x" + Buffer.from("DEVELOPER").toString("hex"),
-  VIEWER: "0x" + Buffer.from("VIEWER").toString("hex")
+  ADMIN: toBytes32("ADMIN"),
+  DEVELOPER: toBytes32("DEVELOPER"),
+  VIEWER: toBytes32("VIEWER")
 };

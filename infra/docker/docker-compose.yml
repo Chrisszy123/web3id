@@ -18,9 +18,10 @@ services:
       dockerfile: services/auth-service/Dockerfile
     ports:
       - "3001:3001"
+    env_file:
+      - ../../.env
     environment:
       DATABASE_URL: postgres://web3id:web3id@postgres:5432/web3id
-      JWT_SECRET: supersecret
     depends_on:
       - postgres
       - rust-verifier

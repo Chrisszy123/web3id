@@ -1,4 +1,4 @@
-import * as jwt from "jsonwebtoken";
+import jwt from "jsonwebtoken";
 import { resolveRoles } from "../lib/roleResolver.js";
 import { verifySignature } from "../lib/verifySignature.js";
 import { Role } from "../../../../packages/shared-types/index.js";
